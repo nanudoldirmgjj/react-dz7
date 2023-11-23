@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "pic": "./fries.png",
+      "positionName": "French fries",
+      "weight": 200,
+      "price": 250
+    },
+    {
+      "id": 2,
+      "pic": "./hotdog.png",
+      "positionName": "Hot dog",
+      "weight": 250,
+      "price": 300
+    },
+    {
+      "id": 3,
+      "pic": "./onion.png",
+      "positionName": "Onion rings",
+      "weight": 150,
+      "price": 200
+    }
+  ]
