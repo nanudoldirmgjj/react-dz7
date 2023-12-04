@@ -1,0 +1,44 @@
+.menu_position {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.menu_position .position_container {
+  display: flex;
+  flex-direction: column;
+}
+.menu_position .position_container .price {
+  color: black;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+.menu_position .position_container .name {
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.8px;
+  word-wrap: break-word;
+}
+.menu_position .position_container .weight {
+  color: #B1B1B1;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20.8px;
+  word-wrap: break-word;
+  padding: 40px 0 0 0;
+}
+.menu_position .position_container button {
+  width: 100%;
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  word-wrap: break-word;
+  padding: 11px 92px 11px 92px;
+  border-radius: 12px;
+  gap: 10px;
+  background-color: #F2F2F3;
+}/*# sourceMappingURL=Menu.css.map */

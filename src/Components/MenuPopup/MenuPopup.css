@@ -1,0 +1,21 @@
+.menu_popup {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.menu_popup .popup_container {
+  width: 50%;
+  height: 60%;
+  margin: auto;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  position: fixed;
+  top: 20%;
+  left: 25%;
+}/*# sourceMappingURL=MenuPopup.css.map */

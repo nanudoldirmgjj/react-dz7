@@ -1,23 +1,99 @@
-[
-    {
-      "id": 1,
-      "pic": "./fries.png",
-      "positionName": "French fries",
-      "weight": 200,
-      "price": 250
-    },
-    {
-      "id": 2,
-      "pic": "./hotdog.png",
-      "positionName": "Hot dog",
-      "weight": 250,
-      "price": 300
-    },
-    {
-      "id": 3,
-      "pic": "./onion.png",
-      "positionName": "Onion rings",
-      "weight": 150,
-      "price": 200
-    }
-  ]
+{
+"forCart": [
+  {
+    "id": 1,
+    "pic": "./fries.png",
+    "positionName": "French fries",
+    "weight": 200,
+    "price": 250,
+    "constituents": ["potatoes", "salt"],
+    "calories": 300,
+    "info": "Classic crispy French fries made from high-quality potatoes and sprinkled with a pinch of salt."
+  },
+  {
+    "id": 2,
+    "pic": "./hotdog.png",
+    "positionName": "Hot dog",
+    "weight": 250,
+    "price": 300,
+    "constituents": ["sausage", "bun", "ketchup", "mustard"],
+    "calories": 450,
+    "info": "Juicy sausage in a soft bun, complemented by the perfect combination of ketchup and mustard. A favorite fast food snack for many people."
+  },
+  {
+    "id": 3,
+    "pic": "./onion.png",
+    "positionName": "Onion rings",
+    "weight": 150,
+    "price": 200,
+    "constituents": ["onion", "breadcrumbs", "spices"],
+    "calories": 350,
+    "info": "Crispy and flavorful onion rings coated in breadcrumbs and spices. A delicious appetizer or side dish for any meal."
+  }
+],
+
+"forMenu": [
+  {
+    "id": 1,
+    "pic": "./fries.png",
+    "positionName": "French fries",
+    "weight": 200,
+    "price": 250,
+    "constituents": ["potatoes", "salt"],
+    "calories": 300,
+    "info": "Classic crispy French fries made from high-quality potatoes and sprinkled with a pinch of salt."
+  },
+  {
+    "id": 2,
+    "pic": "./hotdog.png",
+    "positionName": "Hot dog",
+    "weight": 250,
+    "price": 300,
+    "constituents": ["sausage", "bun", "ketchup", "mustard"],
+    "calories": 450,
+    "info": "Juicy sausage in a soft bun, complemented by the perfect combination of ketchup and mustard. A favorite fast food snack for many people."
+  },
+  {
+    "id": 3,
+    "pic": "./onion.png",
+    "positionName": "Onion rings",
+    "weight": 150,
+    "price": 200,
+    "constituents": ["onion", "breadcrumbs", "spices"],
+    "calories": 350,
+    "info": "Crispy and flavorful onion rings coated in breadcrumbs and spices. A delicious appetizer or side dish for any meal."
+  },  
+  {
+    "id": 4,
+    "pic": "./burg1.png",
+    "positionName": "Heavy blow",
+    "weight": 420,
+    "price": 480,
+    "constituents" : ["beef", "bacon", "cheddar cheese", "lettuce", "tomato", "onion", "pickles", "special sauce"],
+    "calories" : 600,
+    "info": "Super meat delight! A large chopped cutlet of fresh beef meat will conquer you with its juiciness, and crispy lettuce leaves will add freshness. The addition of bacon, cheddar cheese, and special sauce makes it an irresistible treat."
+  },
+  {
+    "id": 5,
+    "pic": "./burg2.png",
+    "positionName": "Timeless classic",
+    "weight": 450,
+    "price": 450,
+    "constituents" : ["beef", "lettuce", "tomato", "onion", "pickles", "ketchup"],
+    "calories" : 550,
+    "info": "The timeless classic burger features a juicy beef patty with fresh lettuce, tomato, onion, pickles, and a touch of ketchup. A simple yet satisfying choice for burger lovers."
+  },
+  {
+    "id": 6,
+    "pic": "./burg3.png",
+    "positionName": "Italian",
+    "weight": 510,
+    "price": 560,
+    "constituents" : ["beef", "mozzarella cheese", "arugula", "tomato", "basil pesto"],
+    "calories" : 520,
+    "info": "Experience the flavors of Italy with this delicious burger. Made with premium beef, melted mozzarella cheese, fresh arugula, sliced tomato, and a drizzle of basil pesto. A gourmet delight for your taste buds."
+  }
+
+]
+
+}

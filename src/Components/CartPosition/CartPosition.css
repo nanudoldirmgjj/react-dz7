@@ -1,0 +1,47 @@
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.full {
+  border-top: 1px solid rgba(0, 0, 0, 0.073);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.073);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.full .position_container {
+  display: flex;
+  height: 100px;
+  padding: 10px;
+  width: 400px;
+}
+.full .position_container .info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 0 0 10px;
+  align-items: center;
+}
+.full .position_container .info .properties {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 30%;
+}
+.full .position_container .info .properties .weight {
+  color: #B1B1B1;
+}
+.full .position_container .info .volume {
+  display: flex;
+  align-items: center;
+  width: 70px;
+  justify-content: space-between;
+  background: #F2F2F3;
+  padding: 5px;
+  border-radius: 8px;
+}/*# sourceMappingURL=CartPosition.css.map */

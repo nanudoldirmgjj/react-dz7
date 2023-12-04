@@ -3,7 +3,24 @@
   margin: auto;
   height: 100vh;
   display: flex;
+ // align-items: center;
+  //justify-content: space-between;
+  // flex-direction: column;
+}
+
+.cart{
+  display: flex;
   align-items: center;
-  justify-content: center;
+ // justify-content: center;
   flex-direction: column;
+}
+.menu{
+  padding: 0 0 0  30px;
+  .burg_topic{
+    padding: 0 0 0 40px;
+  }
+  div{
+  display: flex;
+flex-wrap: wrap;
+  }
 }
