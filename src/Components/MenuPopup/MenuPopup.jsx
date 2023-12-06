@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+
 import React from 'react';
 import './MenuPopup.scss'
 
-export default function MenuPopup({ pic, positionName, calories, weight, price, id, info, constituents, closePopup }) {
+export default function MenuPopup({item, pic, positionName, calories, weight, price, id, info, constituents, closePopup, burgers,setBurgers,editAllProdCount,editTotalPrice, addFromPopup }) {
     const [number, setNumber] = useState(1)
     function changeNum(amper) {
         if (String(amper) === '-1' && number === 1) {
@@ -10,13 +12,17 @@ export default function MenuPopup({ pic, positionName, calories, weight, price, 
         }
         setNumber(number + amper)
     }
+
+
+
+
     return (
-        <div>
-            <div className="menu_popup">
-                <div className="popup_container">
+        <div key={uuidv4()}>
+            <div  onClick={() => { closePopup() }}  className="menu_popup" >
+                <div onClick={(event)=> {event.stopPropagation()}} className="popup_container">
                     <div className='popup_top_block'>
-                    <p className="pop_name">{positionName}</p>
-                    <button onClick={() => { closePopup() }}>x</button>
+                        <p className="pop_name">{positionName}</p>
+                        <button onClick={() => { closePopup() }}>x</button>
                     </div>
                     <div className="pop_content">
                         <img src={pic} alt="" />
@@ -36,9 +42,9 @@ export default function MenuPopup({ pic, positionName, calories, weight, price, 
                         </div>
                     </div>
                     <div className="popup_bottom_part">
-                        <button className="add_to_cart_button">Add to cart</button>
+                        <button onClick={() => {addFromPopup(item, number)}} className="add_to_cart_button">Add to cart</button>
                         <div className="calc">
-                        <button onClick={() => {
+                            <button onClick={() => {
                                 changeNum(-1)
                             }}>-</button>
                             <p>{number}</p>

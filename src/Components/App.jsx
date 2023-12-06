@@ -1,4 +1,6 @@
 import { useState } from 'react'
+
+import { v4 as uuidv4 } from 'uuid'
 import '../style/App.scss'
 import arrCards from '../burgers.json'
 import CartPosition from './CartPosition/CartPosition'
@@ -12,7 +14,8 @@ function App() {
   const [allProdCount, setAllProdCount] = useState(3);
   const [totalPrice, setTotalPrice] = useState(countStartPrice());
   const [foodInfo, setFoodInfo] = useState(arrCards.forMenu);
-  const[popup, setPopup] = useState(popArr);
+  const [popup, setPopup] = useState(popArr);
+
 
 
   function editAllProdCount(amper) {
@@ -46,14 +49,54 @@ function App() {
 
   }
 
-  function openPopup(item){
+  function openPopup(item) {
     const arr = [...popArr];
     arr.push(item);
     setPopup(arr);
   }
-  function closePopup (){
+  function closePopup() {
     setPopup([]);
   }
+
+  function addFromMenu(item) {
+   const truePosition = burgers.find(i => i.positionName === item.positionName);
+   if(truePosition){    
+    return
+   } 
+
+   let lastId = 0;
+   if(burgers.length !== 0) {
+    lastId = burgers[burgers.length-1].id;
+    editAllProdCount(1);
+    editTotalPrice(1, item.price);
+
+  }
+
+   item.id = lastId + 1;
+setBurgers((prevState) => [...prevState, item]);
+  }
+
+
+
+  function addFromPopup (item, positionCount) {
+    const truePosition = burgers.find(i => i.positionName === item.positionName);
+    if(truePosition){    
+     return
+    } 
+ 
+    let lastId = 0;
+    if(burgers.length !== 0) {
+     lastId = burgers[burgers.length-1].id;
+     editAllProdCount(1);
+     editTotalPrice(1, item.price, positionCount);
+ 
+   }
+ 
+    item.id = lastId + 1;
+ setBurgers((prevState) => [...prevState, item]);
+   }
+ 
+
 
 
   if (!burgers) return <h1>error</h1>
@@ -62,11 +105,18 @@ function App() {
     <div className='mainDiv'>
 
       {popup.map(item => {
-        return <div className='popBack'>
-          <MenuPopup {...item} 
-          key ={item.id}
-          closePopup = {closePopup} />
-          </div>
+        return <div key={uuidv4()} className='popBack'>
+          <MenuPopup {...item}
+            key={uuidv4()}
+            closePopup={closePopup} 
+            burgers = {burgers}
+            setBurgers = {setBurgers}
+            editAllProdCount = {editAllProdCount}
+            editTotalPrice = {editTotalPrice}
+            item={item}
+            addFromPopup = {addFromPopup}
+            />
+        </div>
       })}
 
       <div className='cart'>
@@ -75,14 +125,14 @@ function App() {
 
 
         <div className="bm">
-        {burgers.map((item) => (
-  <CartPosition {...item}
-    key={item.id}
-    editAllProdCount={editAllProdCount}
-    delCard={delCard}
-    editTotalPrice={editTotalPrice}
-  />
-))}
+          {burgers.map((item) => (
+            <CartPosition {...item}
+              key={item.id}
+              editAllProdCount={editAllProdCount}
+              delCard={delCard}
+              editTotalPrice={editTotalPrice}
+            />
+          ))}
 
 
         </div>
@@ -97,10 +147,11 @@ function App() {
         <div>
           {foodInfo.map((item) => (
             <Menu {...item}
-              key={item.id}
+              key={uuidv4()}
               openPopup={openPopup}
               item={item}
-              />
+              addFromMenu = {addFromMenu}
+            />
           ))}
         </div>
       </div>

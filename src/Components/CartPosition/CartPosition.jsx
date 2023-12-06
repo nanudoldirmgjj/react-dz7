@@ -1,11 +1,10 @@
-import { useState } from 'react'
+ import { useState } from 'react'
 import './CartPosition.scss'
 import cross from '../../assets/cross.png'
 
 
 export default function CartPosition({pic, positionName, weight, price, editAllProdCount, delCard, id, editTotalPrice }) {
-  let [num, setNum] = useState(1);
-
+    let [num, setNum] = useState(1);
 
   function editCount(amper) {
     if (String(amper) === "-1" && num === 1) { 
@@ -49,3 +48,4 @@ export default function CartPosition({pic, positionName, weight, price, editAllP
     </div>
   )
 }
+
