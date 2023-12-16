@@ -3,8 +3,9 @@ import { v4 as uuidv4 } from 'uuid'
 
 import React from 'react';
 import './MenuPopup.scss'
+import App from '../App';
 
-export default function MenuPopup({item, pic, positionName, calories, weight, price, id, info, constituents, closePopup, burgers,setBurgers,editAllProdCount,editTotalPrice, addFromPopup }) {
+export default function MenuPopup({ item, pic, positionName, calories, weight, price, id, info, constituents, closePopup, burgers, setBurgers, editAllProdCount, editTotalPrice, addFromPopup, addFromMenu }) {
     const [number, setNumber] = useState(1)
     function changeNum(amper) {
         if (String(amper) === '-1' && number === 1) {
@@ -18,8 +19,8 @@ export default function MenuPopup({item, pic, positionName, calories, weight, pr
 
     return (
         <div key={uuidv4()}>
-            <div  onClick={() => { closePopup() }}  className="menu_popup" >
-                <div onClick={(event)=> {event.stopPropagation()}} className="popup_container">
+            <div onClick={() => { closePopup() }} className="menu_popup" >
+                <div onClick={(event) => { event.stopPropagation() }} className="popup_container">
                     <div className='popup_top_block'>
                         <p className="pop_name">{positionName}</p>
                         <button onClick={() => { closePopup() }}>x</button>
@@ -42,7 +43,7 @@ export default function MenuPopup({item, pic, positionName, calories, weight, pr
                         </div>
                     </div>
                     <div className="popup_bottom_part">
-                        <button onClick={() => {addFromPopup(item, number)}} className="add_to_cart_button">Add to cart</button>
+                        <button onClick={() => { addFromMenu(item, number) }} className="add_to_cart_button">Add to cart</button>
                         <div className="calc">
                             <button onClick={() => {
                                 changeNum(-1)
@@ -56,7 +57,15 @@ export default function MenuPopup({item, pic, positionName, calories, weight, pr
                     </div>
 
                 </div>
+                <div className='none'>
+                    <App
+                        number={number}
+                        setNumber={setNumber}
+                    />                </div>
             </div>
+
+
+
         </div>
     )
 }

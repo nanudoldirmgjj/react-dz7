@@ -8,7 +8,7 @@ import Menu from './Menu/Menu'
 import MenuPopup from './MenuPopup/MenuPopup'
 const popArr = [];
 
-function App() {
+function App({number, setNumber}) {
 
   const [burgers, setBurgers] = useState(arrCards.forCart);
   const [allProdCount, setAllProdCount] = useState(3);
@@ -18,8 +18,8 @@ function App() {
 
 
 
-  function editAllProdCount(amper) {
-    setAllProdCount(allProdCount + amper);
+  function editAllProdCount(amper, number = 1) {
+    setAllProdCount(allProdCount + amper*number);
 
   }
 
@@ -58,44 +58,62 @@ function App() {
     setPopup([]);
   }
 
-  function addFromMenu(item) {
+//   const cartState2 =[];
+
+  // function getState(num,setNum){
+  //   console.log(num,setNum);
+  //   let cartState = [num,setNum];
+  //   console.log(cartState);
+  //   return num,setNum;
+  // }
+
+// let a;
+
+
+  function addFromMenu(item, number) {
    const truePosition = burgers.find(i => i.positionName === item.positionName);
    if(truePosition){    
+    editAllProdCount(1, number);
+    editTotalPrice(1, item.price, number);
     return
    } 
 
-   let lastId = 0;
+   let lastId;
    if(burgers.length !== 0) {
     lastId = burgers[burgers.length-1].id;
-    editAllProdCount(1);
-    editTotalPrice(1, item.price);
 
-  }
+
+  } 
+  editAllProdCount(1, number);
+  editTotalPrice(1, item.price, number);
 
    item.id = lastId + 1;
 setBurgers((prevState) => [...prevState, item]);
+// editCount(+1, item.id, undefined, item.price, undefined, number)
   }
 
 
+function changeCartPosNum(number=1){
+  setNum((prevState) => prevState +number)
+}
 
-  function addFromPopup (item, positionCount) {
-    const truePosition = burgers.find(i => i.positionName === item.positionName);
-    if(truePosition){    
-     return
-    } 
- 
-    let lastId = 0;
-    if(burgers.length !== 0) {
-     lastId = burgers[burgers.length-1].id;
-     editAllProdCount(1);
-     editTotalPrice(1, item.price, positionCount);
- 
-   }
- 
-    item.id = lastId + 1;
- setBurgers((prevState) => [...prevState, item]);
-   }
- 
+function editCount(amper,id, num, price,setNum, count = 1) {
+  // if (num == undefined || setNum == undefined){
+
+  //   console.log(78);
+  // }
+  if (String(amper) === "-1" && num === 1) { 
+    delCard(id, num, price);
+   };
+
+  const result = num + amper*count;
+  editAllProdCount(amper);
+  setNum(result);
+  editTotalPrice(amper, price);
+
+
+
+}
 
 
 
@@ -114,7 +132,8 @@ setBurgers((prevState) => [...prevState, item]);
             editAllProdCount = {editAllProdCount}
             editTotalPrice = {editTotalPrice}
             item={item}
-            addFromPopup = {addFromPopup}
+            // addFromPopup = {addFromPopup}
+            addFromMenu = {addFromMenu}
             />
         </div>
       })}
@@ -131,6 +150,9 @@ setBurgers((prevState) => [...prevState, item]);
               editAllProdCount={editAllProdCount}
               delCard={delCard}
               editTotalPrice={editTotalPrice}
+              editCount={editCount}
+              //  getState ={getState}
+              // a = {a}
             />
           ))}
 

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './Menu.scss'
 
+
 export default function Menu({ pic, positionName, weight, price, openPopup, item, addFromMenu, delCard, id, editTotalPrice }) {
   return (
     <div>
@@ -13,7 +14,7 @@ export default function Menu({ pic, positionName, weight, price, openPopup, item
           <p className="name">{positionName}</p>
           <p className="weight">{weight}g</p>
           <div onClick={(event)=>{event.stopPropagation()}}>
-          <button onClick={() => {addFromMenu(item)}}>Add to cart</button></div>
+          <button onClick={() => {addFromMenu(item,1)}}>Add to cart</button></div>
         </div>
       </div>
 
