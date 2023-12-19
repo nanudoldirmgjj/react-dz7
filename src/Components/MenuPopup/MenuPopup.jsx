@@ -43,7 +43,7 @@ export default function MenuPopup({ item, pic, positionName, calories, weight, p
                         </div>
                     </div>
                     <div className="popup_bottom_part">
-                        <button onClick={() => { addFromMenu(item, number) }} className="add_to_cart_button">Add to cart</button>
+                        <button onClick={() => { addFromMenu(item, number), closePopup() }} className="add_to_cart_button">Add to cart</button>
                         <div className="calc">
                             <button onClick={() => {
                                 changeNum(-1)

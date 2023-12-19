@@ -4,32 +4,15 @@ import cross from '../../assets/cross.png'
 import App from '../App';
 
 
-export default function CartPosition({pic, positionName, weight, price, delCard, id, a, editCount  }) {
-    let [num, setNum] = useState(1);
+export default function CartPosition({pic, positionName, weight, price, delCard, id,  editCount,num,setNum  }) {
+ //   let [num, setNum] = useState(1);
 
 
-    // window.onload(()=>{
-    //   getState(num,setNum);
-    // })
 
-  // function editCount(amper) {
-  //   if (String(amper) === "-1" && num === 1) { 
-  //     delCard(id, num, price);
-  //    };
-
-  //   const result = num + amper;
-  //   editAllProdCount(amper);
-  //   setNum(result);
-  //   editTotalPrice(amper, price);
-
-  // }
 
 
   return (
-    <div onLoad={() =>{
-  //  getState(num);
-
-    } } className='full'>
+    <div className='full'>
       <div className="position_container">
 
         <img src={pic} alt="" />
@@ -42,12 +25,12 @@ export default function CartPosition({pic, positionName, weight, price, delCard,
           </div>
 
           <div className="volume">
-            <button onClick={()=>editCount(-1,id, num, price,setNum)} className='minus'>-</button>
-            <p className="num">{num}</p>
-            <button onClick={()=>editCount(+1,id, num, price,setNum)} className="plus">+</button>
+          <button onClick={()=>editCount(-1,id, price)} className='minus'>-</button>
+            <p className="num">{num[-1+id]}</p>
+            <button onClick={()=>editCount(+1,id, price)} className="plus">+</button>
           </div>
 
-          <div className="delEl" onClick={() => delCard(id, num, price)}>
+          <div className="delEl" onClick={() => delCard(id, price)}>
             <img src={cross} alt="" />
           </div>
           
