@@ -57,11 +57,7 @@ export default function MenuPopup({ item, pic, positionName, calories, weight, p
                     </div>
 
                 </div>
-                <div className='none'>
-                    <App
-                        number={number}
-                        setNumber={setNumber}
-                    />                </div>
+
             </div>
 
 

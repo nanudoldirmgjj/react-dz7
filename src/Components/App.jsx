@@ -8,7 +8,7 @@ import Menu from './Menu/Menu'
 import MenuPopup from './MenuPopup/MenuPopup'
 const popArr = [];
 
-function App({ number, setNumber }) {
+function App() {
 
   const [burgers, setBurgers] = useState(arrCards.forCart);
   const [allProdCount, setAllProdCount] = useState(3);
@@ -29,7 +29,6 @@ function App({ number, setNumber }) {
 
     const copyBurgerArr = [...burgers];
     const newBurgerArr = copyBurgerArr.filter((item) => item.id !== id);
-    console.log(newBurgerArr);
     setBurgers(newBurgerArr);
 
 
@@ -37,6 +36,9 @@ function App({ number, setNumber }) {
     // cartArr.splice(id-1, 1);
     // console.log('sjflkds' + `\n` +cartArr +`\n` +id)
     // setNum(cartArr);
+    const arr = [...num];
+    arr[-1+id] = 1;
+    setNum(arr);
 
     editAllProdCount(-1, num[id - 1]);
     editTotalPrice(-1, amount, num[id - 1])
@@ -80,7 +82,6 @@ function App({ number, setNumber }) {
     const truePosition = burgers.find(i => i.positionName === item.positionName);
     if (truePosition) {
 
-      console.log(item.id)
       editCount(+1, item.id, item.price, number)
       return
     }
